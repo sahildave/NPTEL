@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+
+	char str1[20];
+	char str2[20];
+	
+	scanf("%s %s", &str1, &str2);
+	
+	int len1 = strlen(str1);
+	int len2 = strlen(str2);
+	char start = str2[0];
+	int index=0;
+	int success=0;
+	while(index <= len1-len2){
+	
+		if(str1[index]==start){
+			printf("\nMatch first\n");
+			
+			int i=0;
+			int isSub=1;
+			while(isSub && i<len2){
+			
+				if(str2[i] == str1[index+i]){
+					i++;
+					isSub=1;
+					printf("\nMatching");
+					continue;
+				} else {
+					isSub=0;
+					break;
+				}
+			}
+			if(i==len2){
+				printf("\nMatched\n");
+				success =1;
+			}
+			
+		}
+		
+		index++;
+		
+		if(success){
+			
+			printf("%d\n", index);
+			break;
+			return 0;
+		}
+	
+	
+	}
+	if(success==0){
+		printf("%d\n", -1);
+	}
+}
