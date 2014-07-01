@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+
+	int n;
+	scanf("%d", &n);
+
+	char input[101][11];
+	for(int i=0; i<n;i++){
+		scanf("%s", &input[i]);
+	}
+	
+	int i=0;
+	int j=0;
+	for (i=1; i < n; i++){
+		j = i;
+		while(j>0 && strcmp(input[j-1], input[j])>0){
+			char temp[11];
+			
+			strcpy(temp, input[j]);
+			strcpy(input[j], input[j-1]);
+			strcpy(input[j-1], temp);
+			
+			for(int i=0; i<n;i++){
+				printf("%s ", input[i]);
+			}
+			printf("\n");
+			j--;
+		}
+	}
+	printf("\n");
+	for(int i=0; i<n;i++){
+		printf("%s\n", input[i]);
+	}
+
+	
+}
