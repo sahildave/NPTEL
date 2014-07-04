@@ -41,7 +41,7 @@ void incBucketCount(int bin){
 
 void printResult(){
 	
-	if(collision){
+	if(collided){
 		int colIndex=0;
 		while(colArray[colIndex][0]!=-1){
 						
